@@ -1,4 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+namespace Practice1
+{
+    class MultiProgram
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
 
-namesapce 
-Console.WriteLine("Hello, World!");
