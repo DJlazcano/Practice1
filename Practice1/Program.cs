@@ -5,12 +5,15 @@ namespace Practice1
     {
         public static void Main(string[] args)
         {
+            var option = -1;
             do
             {
                 Console.WriteLine("Please choose an option: ");
                 Console.WriteLine("(1) BMI Calculator");
                 Console.WriteLine("(2) Book Class");
-                var option = int.Parse(Console.ReadLine());
+                Console.WriteLine("(3) ATM Machine");
+                Console.WriteLine("(4) Exit");
+                option = int.Parse(Console.ReadLine());
 
                 switch (option)
                 {
@@ -47,6 +50,38 @@ namespace Practice1
 
                         break;
                     case 3:
+                        AtmMachine machine = new AtmMachine();
+                        var bankOperation = -1;
+                        do
+                        {
+                            Console.WriteLine("Please choose an operation: ");
+                            Console.WriteLine("(1) Check Balance");
+                            Console.WriteLine("(2) Deposit Money");
+                            Console.WriteLine("(3) Withdraw Money");
+                            Console.WriteLine("(4) Exit");
+                            bankOperation = int.Parse(Console.ReadLine());
+
+                            switch (bankOperation)
+                            {
+                                case 1:
+                                    machine.checkBalance();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Please enter the amount to Deposit: ");
+                                    var depositAmount = double.Parse(Console.ReadLine());
+                                    machine.depositMoney(depositAmount);
+
+                                    break;
+                                case 3:
+                                    Console.WriteLine("Please enter the amount to Deposit: ");
+                                    var withdrawAmount = double.Parse(Console.ReadLine());
+                                    machine.withdrawMoney(withdrawAmount);
+
+                                    break;
+                                default:
+                                    break;
+                            } 
+                        } while (bankOperation!=4);
 
                         break;
                     case 4:
@@ -64,7 +99,7 @@ namespace Practice1
                     default:
                         break;
                 } 
-            } while (true);
+            } while (option != 4);
         }
     }
 }
