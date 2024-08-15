@@ -12,7 +12,11 @@ namespace Practice1
                 Console.WriteLine("(1) BMI Calculator");
                 Console.WriteLine("(2) Book Class");
                 Console.WriteLine("(3) ATM Machine");
-                Console.WriteLine("(4) Exit");
+                Console.WriteLine("(4) Student AVG Calculator");
+                Console.WriteLine("(5) Dates Calculator");
+                Console.WriteLine("(6) Text Calculator");
+                Console.WriteLine("(7) File Names Sorter");
+                Console.WriteLine("(8) Exit");
                 option = int.Parse(Console.ReadLine());
 
                 switch (option)
@@ -85,13 +89,38 @@ namespace Practice1
 
                         break;
                     case 4:
+                        Console.WriteLine("How many students do you have?: ");
+                        var numStudents = int.Parse(Console.ReadLine());
+                        StudentGrades grades = new StudentGrades();
+                        
+                        for (int i = 1; i <= numStudents; i++)
+                        {
+                            Console.WriteLine("Enter the student's {0} Score:", i);
+                            float studentScore = float.Parse(Console.ReadLine());
+                            grades.addGrade(studentScore);
+                        }
+                       
+                        grades.calculateAvg();
+                        Console.WriteLine("Student's Grades:");
+                        grades.displayGrades();
 
                         break;
                     case 5:
+                        Console.WriteLine("Enter the First Date (MM/DD/YYYY): ");
+                        DateTime date1 = DateTime.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Enter the Second Date (MM/DD/YYYY): ");
+                        DateTime date2 = DateTime.Parse(Console.ReadLine());
+
+                        var differenceDays = (date1 - date2).TotalDays;
+                        Console.WriteLine("There are {0} days between ({1}) and ({2})\n",
+                            differenceDays < 0? differenceDays * -1 : differenceDays,
+                            date1.ToString("dd/MM/yyyy"), date2.ToString("dd/MM/yyyy"));
 
                         break;
                     case 6:
-
+                        Console.WriteLine("Enter your text:");
+                        var text = Console.ReadLine();
                         break;
                     case 7:
 
@@ -99,7 +128,7 @@ namespace Practice1
                     default:
                         break;
                 } 
-            } while (option != 4);
+            } while (option != 8);
         }
     }
 }
