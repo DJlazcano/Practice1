@@ -45,7 +45,7 @@ namespace Practice1
             }
             else
             {
-                Console.WriteLine("Not Enough balance in your account!");
+                Console.WriteLine("Not Enough balance in your account!\n");
             }
         }
     }

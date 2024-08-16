@@ -42,10 +42,7 @@ namespace Practice1
 
                         break;
                     case 6:
-                        Console.WriteLine("Enter your text:");
-                        var text = Console.Read();
-                        Console.WriteLine(text);    
-
+                        countTextFields();
                         break;
                     case 7:
                         fileSorter.sortFile();
@@ -133,6 +130,19 @@ namespace Practice1
                             break;
                     }
                 } while (bankOperation != 4);
+            }
+
+            static void countTextFields()
+            {
+                Console.WriteLine("Enter a block of text (Press Enter twice to finish input): ");
+                textCounter txtCounter = new textCounter();
+                txtCounter.readLines();
+                txtCounter.countText();
+
+                Console.WriteLine("Text entered:");
+                Console.WriteLine(txtCounter.inputText + "\n");
+                Console.WriteLine("Your text contained: {0} Paragraphs, {1} Sentences, {2} Words\n",
+                    txtCounter.numParagraphs, txtCounter.numSentences, txtCounter.numWords);
             }
         }
 
